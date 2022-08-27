@@ -27,13 +27,57 @@
     </div>
     <div class="topo">
         <img src="./images/logo.png" />
-        <ion-icon name="people"></ion-icon>
+        <ion-icon onclick="abrir_lateral()" name="people"></ion-icon>
     </div>
     <div class="fim">
         <div class="caixa_mensagem">
             <input type="text" placeholder="Escreva aqui..."/>
+            <h3 class="info" >Enviando para Todos</h3>
         </div>
         <ion-icon name="paper-plane-outline"></ion-icon>
+    </div>
+    <div class="caixa_mensagens">
+        <ul class="mensagens">
+        </ul>
+    </div>
+    <div class="menu_lateral1 esconder">
+        <div onclick="fechar()" class="fora0"></div>
+        <div class="tamanho0">
+            <div class="cabecalho">
+                <h1>Escolha um contato para enviar mensagem:</h1>
+            </div>
+            <div class="users">
+                <div data-identifier="participant" onclick="selecionar_usuario(this, 'Todos')" class="caixa_user td">
+                    <div class="todos">
+                        <ion-icon name="people"></ion-icon>
+                        <h2>Todos</h2>
+                    </div>
+                    <ion-icon class="check mostrar" name="checkmark-outline"></ion-icon>
+                </div>
+                <ul class="logados">
+                </ul>
+            </div>
+            <div class="cabecalho">
+                <h1>Escolha a visibilidade:</h1>
+            </div>
+            <div class="visibilidade">
+                <div data-identifier="visibility" onclick="selecionar_visibi(this, 0)" class="tipo_msg publico">
+                    <div>
+                        <ion-icon name="lock-open"></ion-icon>
+                        <h2>Público</h2>
+                    </div>
+                    <ion-icon class="check mostrar" name="checkmark-outline"></ion-icon>
+                </div>
+                <div data-identifier="visibility" onclick="selecionar_visibi(this, 1)" class="tipo_msg reservado">
+                    <div>
+                        <ion-icon name="lock-closed"></ion-icon>
+                        <h2>Reservadamente</h2>
+                    </div>
+                    <ion-icon class="check esconder" name="checkmark-outline"></ion-icon>
+
+                </div>
+            </div>
+        </div>
     </div>
     <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>

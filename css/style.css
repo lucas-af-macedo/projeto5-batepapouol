@@ -1,6 +1,16 @@
 body{
     font-family: 'Roboto', sans-serif;
     background-color: #F3F3F3;
+    height: 100%;
+}
+h1{
+    font-family: 'Roboto', sans-serif;
+    margin: 30px;
+    margin-left: 45px;
+    margin-right: 45px;
+}
+h2{
+    font-family: 'Roboto', sans-serif;
 }
 .inicio{
     width: 100%;
@@ -68,6 +78,7 @@ body{
 
 .esconder{
     display: none;
+    transition: 1300ms ease;
 }
 .topo{
     width: 100%;
@@ -115,6 +126,14 @@ body{
     outline: 0;
     border: 0px;
 }
+.fim h3{
+    margin-left: 2px;
+    font-weight: 300;
+    font-size: 15px;
+    color: #505050;
+    margin-bottom: 10px;
+    white-space: nowrap;
+}
 .caixa_mensagem{
     width: calc(100% - 96px);
     height: 80px;
@@ -125,4 +144,124 @@ body{
 }
 .fim input::placeholder{
     font-size: 18px;
+    color: black;
+    font-style: italic;
+}
+.menu_lateral1{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    /*position: relative;*/
+    z-index: 7;
+    background-color: rgba(0, 0, 0, 0);
+}
+.tamanho0{
+    width: 0px;
+    height: 100%;
+    background-color: white;
+    transition: 200ms linear;
+    position: absolute;
+    right: 0;
+    z-index: 9;
+}
+.fora0{
+    width: 100%;
+    height: 100%;
+    transition: 200ms linear;
+    background-color: rgba(0, 0, 0, 0);
+    position: absolute;
+    left: 0;
+    z-index: 6;
+}
+.fora1{
+    width: 100%;
+    height: 100%;
+    transition: 200ms linear;
+    background-color: rgba(0, 0, 0, 0.6);
+    position: absolute;
+    left: 0;
+    z-index: 6;
+}
+.menu{
+    width: 259px;
+    height: 100%;
+    background-color: white;
+    transition: 200ms linear;
+    position: absolute;
+    right: 0;
+    z-index: 9;
+}
+.cabecalho{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-weight: 700;
+    font-size: 16px;
+    width: 259px;
+}
+.tipo_msg{
+    width: 259px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 7px;
+    font-weight: 400;
+    font-size: 16px;
+}
+.tipo_msg h2{
+    margin-left: 5px;
+}
+.tipo_msg ion-icon{
+    margin-bottom: 3px;
+    width: 20px;
+    height: 20px;
+}
+.todos{
+    display: flex;
+    align-items: center;
+    padding-left: 18px;
+    font-weight: 400;
+    font-size: 16px;
+}
+.users ion-icon{
+    width: 20px;
+    height: 20px;
+}
+
+.users h2{
+    margin-left: 5px;
+}
+.usuario{
+    display: flex;
+    align-items: center;
+    padding-left: 18px;
+    font-weight: 400;
+    font-size: 16px;
+    margin-top: 10px;
+}
+.tipo_msg div{
+    margin-left: 18px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 7px;
+    font-weight: 400;
+    font-size: 16px;
+}
+.check{
+    color: green;
+    margin-right: 18px;
+}
+.caixa_user{
+    width: 259px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.users{
+    max-height: calc(100% - 250px);
+    overflow-y: scroll;
+}
+.users::-webkit-scrollbar{
+    display: none;
 }
