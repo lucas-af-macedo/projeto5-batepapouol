@@ -207,3 +207,15 @@ function colocar_msg(lista_msg){
         
     }
 }
+
+function enviar(){
+    let local_mensagem = document.querySelector('.caixa_mensagem input');
+    mensagem = local_mensagem.value;
+    local_mensagem.value='';
+    axios.post('https://mock-api.driven.com.br/api/v6/uol/messages',{
+        from: usuario,
+        to: destin,
+        text: mensagem,
+        type: tipomsg
+    });
+}
