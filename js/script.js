@@ -2,6 +2,8 @@ let usuario;
 let destin = 'Todos';
 let tipomsg = 'message';
 let tipo_mensagem = '';
+
+
 function cadastro(){
     let carreg = document.querySelector('.carregando');
     let logini = document.querySelector('.login_ini');
@@ -37,8 +39,18 @@ function acesso(login){
     inicio.classList.toggle('esconder');
     let lista_users = axios.get('https://mock-api.driven.com.br/api/v6/uol/participants');
     lista_users.then(colocar_user)
+    let lista_msg = axios.get('https://mock-api.driven.com.br/api/v6/uol/messages');
+    lista_msg.then(colocar_msg);
     setInterval(get_user, 10000);
+    setInterval(get_msg, 3000);
+
 }
+
+function get_msg(){
+    let lista_msg = axios.get('https://mock-api.driven.com.br/api/v6/uol/messages');
+    lista_msg.then(colocar_msg);
+}
+
 function get_user(){
     let lista_users = axios.get('https://mock-api.driven.com.br/api/v6/uol/participants');
     lista_users.then(colocar_user);
@@ -77,15 +89,20 @@ function colocar_user(lista_users){
     let a;
     lista.innerHTML='';
     let controle = 0;
+    let cont2;
     let cont;
     for (let i=0;i<lista_users.data.length;i++){
-        cont=lista_users.data[i].name;
+        cont=`${lista_users.data[i].name}`;
+        cont2=cont;
+        if (cont.length>15){
+            cont2=cont.substring(0,15)+'...'
+        }
         if (cont !== usuario){
             if (lista_users.data[i].name !== destin){
             lista.innerHTML=lista.innerHTML + `<div data-identifier="participant" onclick="selecionar_usuario(this, '${cont}')" class="caixa_user">
                 <div class="usuario ul_${lista_users.data[i].name}">
                         <ion-icon name="person-circle"></ion-icon>
-                        <h2>${lista_users.data[i].name}</h2>
+                        <h2>${cont2}</h2>
                     </div>
                     <ion-icon class="check esconder" name="checkmark-outline"></ion-icon>
                 </div>`
@@ -94,7 +111,7 @@ function colocar_user(lista_users){
                 lista.innerHTML=lista.innerHTML + `<div data-identifier="participant" onclick="selecionar_usuario(this, '${cont}')" class="caixa_user">
                 <div class="usuario ul_${lista_users.data[i].name}">
                         <ion-icon name="person-circle"></ion-icon>
-                        <h2>${lista_users.data[i].name}</h2>
+                        <h2>${cont2}</h2>
                     </div>
                     <ion-icon class="check mostrar" name="checkmark-outline"></ion-icon>
                 </div>`
@@ -157,5 +174,36 @@ function selecionar_visibi(objeto, tipo){
     }
     else{
         info.innerHTML = `Enviando para ${destin} ${tipo_mensagem}`;
+    }
+}
+
+function colocar_msg(lista_msg){
+    let local_msg = document.querySelector('.mensagens');
+    let array_msg = lista_msg.data;
+    local_msg.innerHTML = '';
+    for (let i=0;i<array_msg.length;i++){
+        if (array_msg[i].type == 'status'){
+            local_msg.innerHTML =local_msg.innerHTML + `<div class="mensagem status">
+                                        <p>
+                                        <c>(${array_msg[i].time})</c> <b>${array_msg[i].from}</b> ${array_msg[i].text}</p>
+                                    </div>`;
+        }else if (array_msg[i].type == 'message') {
+            local_msg.innerHTML =local_msg.innerHTML + `<div class="mensagem message">
+                                        <p>
+                                        <c>(${array_msg[i].time})</c> <b>${array_msg[i].from}</b> para <b> ${array_msg[i].to}</b>: ${array_msg[i].text}</p>
+                                    </div>`;
+        }else
+            if (array_msg[i].from == usuario){
+                local_msg.innerHTML =local_msg.innerHTML + `<div class="mensagem private-message">
+                                        <p>
+                                        <c>(${array_msg[i].time})</c> <b>${array_msg[i].from}</b> reservadamente para <b> ${array_msg[i].to}</b>: ${array_msg[i].text}</p>
+                                    </div>`;
+            }else if (array_msg[i].to == usuario || array_msg[i].from == 'Todos'){
+                local_msg.innerHTML =local_msg.innerHTML + `<div class="mensagem private-message">
+                                        <p>
+                                        <c>(${array_msg[i].time})</c> <b>${array_msg[i].from}</b> reservadamente para <b> ${array_msg[i].to}</b>: ${array_msg[i].text}</p>
+                                    </div>`;
+            }
+        
     }
 }
