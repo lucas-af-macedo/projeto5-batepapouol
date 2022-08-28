@@ -125,6 +125,8 @@ h2{
     height: 50px;
     outline: 0;
     border: 0px;
+    font-weight: 400;
+    font-size: 18px;
 }
 .fim h3{
     margin-left: 2px;
@@ -158,7 +160,7 @@ h2{
 }
 .tamanho0{
     width: 0px;
-    height: 100%;
+    height: 100vh;
     background-color: white;
     transition: 200ms linear;
     position: absolute;
@@ -166,8 +168,8 @@ h2{
     z-index: 9;
 }
 .fora0{
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     transition: 200ms linear;
     background-color: rgba(0, 0, 0, 0);
     position: absolute;
@@ -176,8 +178,8 @@ h2{
     z-index: 6;
 }
 .fora1{
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     transition: 200ms linear;
     background-color: rgba(0, 0, 0, 0.6);
     position: absolute;
@@ -187,7 +189,7 @@ h2{
 }
 .menu{
     width: 259px;
-    height: 100%;
+    height: 100vh;
     background-color: white;
     transition: 200ms linear;
     position: absolute;

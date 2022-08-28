@@ -29,9 +29,12 @@ function error(erro){
     alert('Nome invalido');
 }
 function status(){
-    axios.post('https://mock-api.driven.com.br/api/v6/uol/status',{
+    let response = axios.post('https://mock-api.driven.com.br/api/v6/uol/status',{
         name: usuario
     });
+}
+function reset(response){
+    window.location.reload();
 }
 function acesso(login){
     setInterval(status, 5000);
@@ -212,10 +215,24 @@ function enviar(){
     let local_mensagem = document.querySelector('.caixa_mensagem input');
     mensagem = local_mensagem.value;
     local_mensagem.value='';
-    axios.post('https://mock-api.driven.com.br/api/v6/uol/messages',{
+    let response = axios.post('https://mock-api.driven.com.br/api/v6/uol/messages',{
         from: usuario,
         to: destin,
         text: mensagem,
         type: tipomsg
     });
+    response.catch(response);
 }
+let textBox = document.querySelector('.caixa_mensagem input');
+textBox.addEventListener("keyup", function (event) {
+    if (event.keyCode == 13) {
+        enviar();
+    }
+});
+
+let textBox2 = document.querySelector('.login_ini input');
+textBox2.addEventListener("keyup", function (event) {
+    if (event.keyCode == 13) {
+        cadastro();
+    }
+});
