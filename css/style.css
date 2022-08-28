@@ -3,6 +3,9 @@ body{
     background-color: #F3F3F3;
     height: 100%;
 }
+body::-webkit-scrollbar{
+    display: none;
+}
 h1{
     font-family: 'Roboto', sans-serif;
     margin: 30px;
@@ -18,6 +21,7 @@ h2{
     background-color: white;
     position: fixed;
     z-index: 10;
+    top: 0;
 }
 .topo_ini{
     top: 0px;
@@ -281,7 +285,7 @@ h2{
     width: 100%;
     height: 100%;
     padding-top: 4px;
-    padding-bottom: 6px;
+    padding-bottom: 2px;
 }
 .mensagem{
     width: calc(100% - 40px);
