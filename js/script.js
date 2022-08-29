@@ -227,7 +227,7 @@ function colocar_msg(lista_msg){
                                         <p>
                                         <c>(${array_msg[i].time})</c> <b>${array_msg[i].from}</b> reservadamente para <b> ${array_msg[i].to}</b>: ${array_msg[i].text}</p>
                                     </div>`;
-            }else if (array_msg[i].to == usuario || array_msg[i].from == 'Todos'){
+            }else if (array_msg[i].to == usuario || array_msg[i].to == 'Todos'){
                 local_msg.innerHTML =local_msg.innerHTML + `<div class="msg${i+1} mensagem private-message">
                                         <p>
                                         <c>(${array_msg[i].time})</c> <b>${array_msg[i].from}</b> reservadamente para <b> ${array_msg[i].to}</b>: ${array_msg[i].text}</p>

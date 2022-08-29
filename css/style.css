@@ -165,6 +165,7 @@ h2{
 .tamanho0{
     width: 0px;
     height: 100vh;
+    overflow-y: scroll;
     background-color: white;
     transition: width 200ms linear;
     position: absolute;
@@ -173,7 +174,7 @@ h2{
 }
 .fora0{
     width: 100vw;
-    height: 100vh;
+    height: 100%;
     transition: background-color 200ms linear;
     background-color: rgba(0, 0, 0, 0);
     position: absolute;
@@ -193,12 +194,20 @@ h2{
 }
 .menu{
     width: 259px;
-    height: 100vh;
+    height: 100%;
+    overflow-y: scroll;
     background-color: white;
     transition: width 200ms linear;
     position: absolute;
     right: 0;
     z-index: 9;
+}
+
+.menu::-webkit-scrollbar{
+    display: none;
+}
+.tamanho0::-webkit-scrollbar{
+    display: none;
 }
 .cabecalho{
     display: flex;
@@ -271,13 +280,6 @@ h2{
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
-.users{
-    max-height: calc(100% - 250px);
-    overflow-y: scroll;
-}
-.users::-webkit-scrollbar{
-    display: none;
 }
 
 /*mensagens*/
