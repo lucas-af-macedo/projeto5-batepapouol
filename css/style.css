@@ -290,10 +290,11 @@ h2{
     padding-bottom: 2px;
 }
 .mensagem{
-    width: calc(100% - 40px);
+    width: calc(100% - 20px);
     border-radius: 2px;
     font-size: 14px;
     padding: 15px;
+    padding-right: 10px;
     padding-left: 10px;
     overflow-wrap: break-word;
     margin-bottom: 4px;
