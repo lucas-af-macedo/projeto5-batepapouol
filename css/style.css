@@ -166,7 +166,7 @@ h2{
     width: 0px;
     height: 100vh;
     background-color: white;
-    transition: 200ms linear;
+    transition: width 200ms linear;
     position: absolute;
     right: 0;
     z-index: 9;
@@ -174,7 +174,7 @@ h2{
 .fora0{
     width: 100vw;
     height: 100vh;
-    transition: 200ms linear;
+    transition: background-color 200ms linear;
     background-color: rgba(0, 0, 0, 0);
     position: absolute;
     left: 0;
@@ -184,7 +184,7 @@ h2{
 .fora1{
     width: 100vw;
     height: 100vh;
-    transition: 200ms linear;
+    transition: background-color 200ms linear;
     background-color: rgba(0, 0, 0, 0.6);
     position: absolute;
     top: 0;
@@ -195,7 +195,7 @@ h2{
     width: 259px;
     height: 100vh;
     background-color: white;
-    transition: 200ms linear;
+    transition: width 200ms linear;
     position: absolute;
     right: 0;
     z-index: 9;
@@ -279,6 +279,8 @@ h2{
 .users::-webkit-scrollbar{
     display: none;
 }
+
+/*mensagens*/
 .container_mensagens{
     margin-top: 80px;
     margin-bottom: 80px;
@@ -291,9 +293,9 @@ h2{
     width: calc(100% - 40px);
     border-radius: 2px;
     font-size: 14px;
-    padding: 20px;
+    padding: 15px;
+    padding-left: 10px;
     overflow-wrap: break-word;
-    padding-top: 20px;
     margin-bottom: 4px;
 }
 .status{
@@ -312,6 +314,7 @@ h2{
     width: calc(100% - 40px);
     overflow-wrap: break-word;
     word-wrap: break-word;
+    line-height: 17px;
 }
 .mensagem c{
     color: #AAAAAA;
